@@ -21,5 +21,11 @@ jobs:
           webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
           text: "PR ready!:smile: Please review it :pray:"
           color: info # Slack already-supported color
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-20.04
+    steps:
+    - run: |
+        echo The PR was merged
 
 
